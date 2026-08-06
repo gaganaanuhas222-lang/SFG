@@ -1,12 +1,12 @@
 import { STATUS_CODES } from "../enums/status_codes";
-import { LOGIN_SIGNUP_RESULI } from "../interfaces/apiService.interface";
+import { LOGIN_SIGNUP_RESULT } from "../interfaces/apiService.interface";
 import { LOGIN } from "../interfaces/login.interface";
 import { STUDENT_REGISTER } from "../interfaces/register.interface";
 import { isValdPassword, isValidMobileNumber, PASSWORD_MIN_LEN, removeAllSpaces, trimString } from "../util/util";
 import apiRepository from "../repository/auth.respository"
 
 export default {
-    async signup(signup: STUDENT_REGISTER): Promise<LOGIN_SIGNUP_RESULI> {
+    async signup(signup: STUDENT_REGISTER): Promise<LOGIN_SIGNUP_RESULT> {
         
         const {
             fullName,
@@ -92,7 +92,7 @@ Minimum length of ${PASSWORD_MIN_LEN} characters`
 
     },
 
-    async login(login: LOGIN): Promise<LOGIN_SIGNUP_RESULI> {
+    async login(login: LOGIN): Promise<LOGIN_SIGNUP_RESULT> {
         return {
             status: STATUS_CODES.OK,
             message: ""
