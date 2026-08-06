@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Science For Genius | Modern Learning Platform</title>
+    
+    <!-- Clean Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main CSS Link -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Ambient Glowing Background Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
+   <!-- Header / Navbar -->
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#">
+                    <div class="logo-icon"><i class="fa-solid fa-atom"></i></div>
+                    <span>Science For Genius</span>
+                </a>
+            </div>
+            
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#hero" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a href="#grades"><i class="fa-solid fa-book-open"></i> Classes</a></li>
+                <li><a href="#textbooks"><i class="fa-solid fa-file-pdf"></i> Science Textbooks</a></li>
+                <li><a href="about.html"><i class="fa-solid fa-user-tie"></i> About Sir</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Light/Dark Mode">
+                    <i class="fa-solid fa-moon icon-moon"></i>
+                    <i class="fa-solid fa-sun icon-sun"></i>
+                </button>
+
+                <button id="open-login-btn" class="btn-primary-sm">
+                    <i class="fa-solid fa-right-to-bracket"></i> Sign In
+                </button>
+
+                <!-- Mobile Hamburger Button -->
+                <button id="mobile-menu-btn" class="hamburger-btn" aria-label="Toggle Navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-container">
+            
+            <!-- Left Side Content -->
+            <div class="hero-content">
+                <div class="pill-badge">
+                    <span class="badge-dot"></span> Sri Lanka's Premier Science Academy
+                </div>
+                
+                <h1>Master O/L Science With <span class="text-gradient">Conceptual Clarity</span></h1>
+                
+                <p class="hero-subtext">
+                    Grade 7 to 11 (O/L) online & physical lectures. Designed to transform complex science theories into intuitive, exam-ready knowledge.
+                </p>
+                
+                <div class="hero-actions">
+                    <a href="#grades" class="btn-primary"><i class="fa-solid fa-rocket"></i> Explore All Classes</a>
+                    <a href="#about" class="btn-outline"><i class="fa-solid fa-circle-play"></i> Watch Intro Video</a>
+                </div>
+
+                <!-- Trust Stats Cards -->
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <span class="stat-num">5,000+</span>
+                        <span class="stat-label">Active Students</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-card">
+                        <span class="stat-num">98%</span>
+                        <span class="stat-label">Pass Percentage</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-card">
+                        <span class="stat-num">100+</span>
+                        <span class="stat-label">Model Papers</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side Image with Circle Frame -->
+            <div class="hero-media">
+                <div class="circle-avatar-container">
+                    <div class="outer-glow-ring"></div>
+                    <div class="inner-circle-frame">
+                       <img src="science-for-genius/public/js/images/sir.png" alt="Science Sir" class="hero-circle-img" onerror="this.onerror=null; this.src='"science-for-genius/public/js/images/sir.png"';">
+                    </div>
+                </div>
+
+                <!-- Floating Feature Badges -->
+                <div class="glass-card float-card-1">
+                    <div class="card-icon-box blue"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <div>
+                        <h4>Grade 11 Target</h4>
+                        <p>O/L Special Revision</p>
+                    </div>
+                </div>
+
+                <div class="glass-card float-card-2">
+                    <div class="card-icon-box indigo"><i class="fa-solid fa-award"></i></div>
+                    <div>
+                        <h4>Top Results</h4>
+                        <p>Island-wide Rankers</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Grades Section -->
+    <section class="grades-section" id="grades">
+        <div class="section-header">
+            <span class="sub-title">CURRICULUM</span>
+            2Choose Your Grade Class</h2>
+            <p>Structured theory and revision modules tailored for academic excellence.</p>
+        </div>
+
+        <div class="cards-grid">
+            <!-- Grade 7 -->
+            <div class="course-card">
+                <div class="course-header">
+                    <div class="icon-circle"><i class="fa-solid fa-seedling"></i></div>
+                    <span class="grade-pill">Grade 07</span>
+                </div>
+                <h3>Foundation Science</h3>
+                <ul class="course-specs">
+                    <li><i class="fa-regular fa-clock"></i> Saturdays 3:00 PM - 5:00 PM</li>
+                    <li><i class="fa-solid fa-book"></i> Basic Concepts & Experiments</li>
+                    <li><i class="fa-solid fa-file-lines"></i> Monthly Worksheets</li>
+                </ul>
+                <button class="btn-card">Enroll Class <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+
+            <!-- Grade 8 -->
+            <div class="course-card">
+                <div class="course-header">
+                    <div class="icon-circle"><i class="fa-solid fa-flask"></i></div>
+                    <span class="grade-pill">Grade 08</span>
+                </div>
+                <h3>Intermediate Science</h3>
+                <ul class="course-specs">
+                    <li><i class="fa-regular fa-clock"></i> Sundays 8:00 AM - 10:00 AM</li>
+                    <li><i class="fa-solid fa-vial"></i> Practical Applications</li>
+                    <li><i class="fa-solid fa-file-lines"></i> Unit Tests & Assignments</li>
+                </ul>
+                <button class="btn-card">Enroll Class <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+
+            <!-- Grade 9 -->
+            <div class="course-card">
+                <div class="course-header">
+                    <div class="icon-circle"><i class="fa-solid fa-atom"></i></div>
+                    <span class="grade-pill">Grade 09</span>
+                </div>
+                <h3>Advanced Fundamentals</h3>
+                <ul class="course-specs">
+                    <li><i class="fa-regular fa-clock"></i> Mondays 4:00 PM - 6:00 PM</li>
+                    <li><i class="fa-solid fa-brain"></i> Chemistry & Physics Intro</li>
+                    <li><i class="fa-solid fa-file-lines"></i> Model Question Papers</li>
+                </ul>
+                <button class="btn-card">Enroll Class <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+
+            <!-- Grade 10 -->
+            <div class="course-card">
+                <div class="course-header">
+                    <div class="icon-circle"><i class="fa-solid fa-dna"></i></div>
+                    <span class="grade-pill">Grade 10</span>
+                </div>
+                <h3>O/L Theory Mastery</h3>
+                <ul class="course-specs">
+                    <li><i class="fa-regular fa-clock"></i> Tuesdays 3:30 PM - 5:30 PM</li>
+                    <li><i class="fa-solid fa-microscope"></i> In-depth Syllabus Coverage</li>
+                    <li><i class="fa-solid fa-file-lines"></i> Past Paper Analysis</li>
+                </ul>
+                <button class="btn-card">Enroll Class <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+
+            <!-- Grade 11 (Featured) -->
+            <div class="course-card featured-card">
+                <div class="featured-badge">MOST POPULAR</div>
+                <div class="course-header">
+                    <div class="icon-circle featured-icon"><i class="fa-solid fa-award"></i></div>
+                    <span class="grade-pill featured-pill">Grade 11 (O/L)</span>
+                </div>
+                <h3>O/L Target Revision & Theory</h3>
+                <ul class="course-specs">
+                    <li><i class="fa-regular fa-clock"></i> Thursdays 3:30 PM - 6:00 PM</li>
+                    <li><i class="fa-solid fa-bullseye"></i> Past Paper Discussions</li>
+                    <li><i class="fa-solid fa-file-circle-check"></i> Model Papers & Exam Tips</li>
+                </ul>
+                <button class="btn-primary w-100">Enroll Class <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+    <!-- School Textbooks Section (Grade 6 - 11) -->
+    <section class="textbooks-section" id="textbooks">
+        <div class="section-header">
+            <span class="sub-title">FREE RESOURCES</span>
+            <h2>School Science Textbooks</h2>
+            <p>Download official Ministry of Education Science Textbooks for Grade 6 to Grade 11.</p>
+        </div>
+
+        <!-- Grade Filter Buttons -->
+        <div class="filter-container">
+            <button class="tb-filter-btn active" data-grade="all">All Grades</button>
+            <button class="tb-filter-btn" data-grade="6">Grade 6</button>
+            <button class="tb-filter-btn" data-grade="7">Grade 7</button>
+            <button class="tb-filter-btn" data-grade="8">Grade 8</button>
+            <button class="tb-filter-btn" data-grade="9">Grade 9</button>
+            <button class="tb-filter-btn" data-grade="10">Grade 10</button>
+            <button class="tb-filter-btn" data-grade="11">Grade 11</button>
+        </div>
+
+        <!-- Textbooks Grid -->
+        <div class="textbooks-grid">
+            
+            <!-- Grade 11 -->
+            <div class="tb-card" data-grade="11">
+                <div class="tb-cover cover-g11">
+                    <i class="fa-solid fa-book-bookmark"></i>
+                    <span>Grade 11</span>
+                </div>
+                <div class="tb-info">
+                    <span class="tb-badge">O/L Science</span>
+                    <h3>Grade 11 Science - Part I</h3>
+                    <p>Official Government Textbook (Sinhala Medium)</p>
+                    <a href="https://www.edupub.gov.lk/BooksDownload.aspx" target="_blank" class="btn-tb-download">
+                        <i class="fa-solid fa-file-arrow-down"></i> Download PDF
+                    </a>
+                </div>
+            </div>
+
+            <div class="tb-card" data-grade="11">
+                <div class="tb-cover cover-g11">
+                    <i class="fa-solid fa-book-bookmark"></i>
+                    <span>Grade 11</span>
+                </div>
+                <div class="tb-info">
+                    <span class="tb-badge">O/L Science</span>
+                    <h3>Grade 11 Science - Part II</h3>
+                    <p>Official Government Textbook (Sinhala Medium)</p>
+                    <a href="https://www.edupub.gov.lk/BooksDownload.aspx" target="_blank" class="btn-tb-download">
+                        <i class="fa-solid fa-file-arrow-down"></i> Download PDF
+                    </a>
+                </div>
+            </div>
+
+            <!-- Grade 10 -->
+            <div class="tb-card" data-grade="10">
+                <div class="tb-cover cover-g10">
+                    <i class="fa-solid fa-book-bookmark"></i>
+                    <span>Grade 10</span>
+                </div>
+                <div class="tb-info">
+                    <span class="tb-badge">Grade 10 Science</span>
+                    <h3>Grade 10 Science - Part I</h3>
+                    <p>Official Government Textbook (Sinhala Medium)</p>
+                    <a href="https://www.edupub.gov.lk/BooksDownload.aspx" target="_blank" class="btn-tb-download">
+                        <i class="fa-solid fa-file-arrow-down"></i> Download PDF
+                    </a>
+                </div>
+            </div>
+
+            <div class="tb-card" data-grade="10">
+                <div class="tb-cover cover-g10">
+                    <i class="fa-solid fa-book-bookmark"></i>
+                    <span>Grade 10</span>
+                </div>
+                <div class="tb-info">
+                    <span class="tb-badge">Grade 10 Science</span>
+                    <h3>Grade 10 Science - Part II</h3>
+                    <p>Official Government Textbook (Sinhala Medium)</p>
+                    <a href="https://www.edupub.gov.lk/BooksDownload.aspx" target="_blank" class="btn-tb-download">
+                        <i class="fa-solid fa-file-arrow-down"></i> Download PDF
+                    </a>
+                </div>
+            </div>
+
+            <!-- Grade 9 -->
+            <div class="tb-card" data-grade="9">
+                <div class="tb-cover cover-g9">
+                    <i class="fa-solid fa-book-bookmark"></i>
+                    <span>Grade 9</span>
+                </div>
+                <div class="tb-info">
+                    <span class="tb-badge">Grade 9 Science</span>
+                    <h3>Grade 9 Science Textbook</h3>
+                    <p>Official Government Textbook (Sinhala Medium)</p>
+                    <a href="https://www.edupub.gov.lk/BooksDownload.aspx" target="_blank" class="btn-tb-download">
+                        <i class="fa-solid fa-file-arrow-down"></i> Download PDF
+                    </a>
+                </div>
+            </div>
+
+            <!-- Grade 8 -->
+            <div class="tb-card" data-grade="8">
+                <div class="tb-cover cover-g8">
+                    <i class="fa-solid fa-book-bookmark"></i>
+                    <span>Grade 8</span>
+                </div>
+                <div class="tb-info">
+                    <span class="tb-badge">Grade 8 Science</span>
+                    <h3>Grade 8 Science Textbook</h3>
+                    <p>Official Government Textbook (Sinhala Medium)</p>
+                    <a href="https://www.edupub.gov.lk/BooksDownload.aspx" target="_blank" class="btn-tb-download">
+                        <i class="fa-solid fa-file-arrow-down"></i> Download PDF
+                    </a>
+                </div>
+            </div>
+
+            <!-- Grade 7 -->
+            <div class="tb-card" data-grade="7">
+                <div class="tb-cover cover-g7">
+                    <i class="fa-solid fa-book-bookmark"></i>
+                    <span>Grade 7</span>
+                </div>
+                <div class="tb-info">
+                    <span class="tb-badge">Grade 7 Science</span>
+                    <h3>Grade 7 Science Textbook</h3>
+                    <p>Official Government Textbook (Sinhala Medium)</p>
+                    <a href="https://www.edupub.gov.lk/BooksDownload.aspx" target="_blank" class="btn-tb-download">
+                        <i class="fa-solid fa-file-arrow-down"></i> Download PDF
+                    </a>
+                </div>
+            </div>
+
+            <!-- Grade 6 -->
+            <div class="tb-card" data-grade="6">
+                <div class="tb-cover cover-g6">
+                    <i class="fa-solid fa-book-bookmark"></i>
+                    <span>Grade 6</span>
+                </div>
+                <div class="tb-info">
+                    <span class="tb-badge">Grade 6 Science</span>
+                    <h3>Grade 6 Science Textbook</h3>
+                    <p>Official Government Textbook (Sinhala Medium)</p>
+                    <a href="https://www.edupub.gov.lk/BooksDownload.aspx" target="_blank" class="btn-tb-download">
+                        <i class="fa-solid fa-file-arrow-down"></i> Download PDF
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Auth Modal / Popup -->
+    <div class="auth-modal" id="auth-modal">
+        <div class="modal-content">
+            <button class="close-btn" id="close-modal"><i class="fa-solid fa-xmark"></i></button>
+            
+            <div class="role-tabs">
+                <button class="role-btn active" id="tab-student"><i class="fa-solid fa-user-graduate"></i> Student</button>
+                <button class="role-btn" id="tab-coordinator"><i class="fa-solid fa-user-shield"></i> Coordinator</button>
+            </div>
+
+            <div id="student-section" class="role-section active-section">
+                <form id="student-login-form" class="auth-form active-form">
+                    <div class="modal-header">
+                        <h2>Student Login</h2>
+                        <p>Access your course materials and online lectures.</p>
+                    </div>
+                    <div class="input-group">
+                        <i class="fa-solid fa-id-card"></i>
+                        <input type="text" placeholder="Student ID (e.g. SFG-8492)" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn-primary w-100">Sign In <i class="fa-solid fa-arrow-right-to-bracket"></i></button>
+                    <p class="switch-form">Don't have an account? <span id="go-to-student-register">Register Now</span></p>
+                </form>
+
+                <form id="student-register-form" class="auth-form">
+                    <div class="modal-header">
+                        <h2>Create Student Account</h2>
+                        <p>Fill in details to register and receive your Student ID.</p>
+                    </div>
+                    <div class="input-group">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <select required class="custom-select">
+                                <option value="" disabled selected>Select Grade</option>
+                                <option value="7">Grade 07</option>
+                                <option value="8">Grade 08</option>
+                                <option value="9">Grade 09</option>
+                                <option value="10">Grade 10</option>
+                                <option value="11">Grade 11 (O/L)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <input type="text" placeholder="District" required>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <i class="fa-solid fa-school"></i>
+                        <input type="text" placeholder="School Name" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <input type="tel" placeholder="WhatsApp Number" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fa-solid fa-key"></i>
+                        <input type="password" placeholder="Create Password" required>
+                    </div>
+                    <button type="submit" class="btn-primary w-100">Complete Registration <i class="fa-solid fa-user-plus"></i></button>
+                    <p class="switch-form">Already registered? <span id="go-to-student-login">Sign In</span></p>
+                </form>
+            </div>
+
+            <div id="coordinator-section" class="role-section">
+                <form id="coordinator-login-form" class="auth-form active-form">
+                    <div class="modal-header">
+                        <h2>Coordinator Portal</h2>
+                        <p>Enter your authorization code to proceed.</p>
+                    </div>
+                    <div class="input-group">
+                        <i class="fa-solid fa-key"></i>
+                        <input type="password" placeholder="Access Passcode" required>
+                    </div>
+                    <button type="submit" class="btn-primary w-100">Authenticate <i class="fa-solid fa-shield-halved"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/canvas.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
