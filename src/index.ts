@@ -1,6 +1,7 @@
 import dotEnv from "dotenv";
 import express from "express";
-import apiRouter from "./routes/api/route";
+import apiRouter from "./routes/api/router";
+import { sendBadResponce, sendNotFoundResponce } from "./status/status";
 
 dotEnv.config();
 
@@ -14,6 +15,9 @@ EXPRESS.use(express.json());
 
 EXPRESS.use("/", express.static("public/"));
 EXPRESS.use("/api", apiRouter);
+
+EXPRESS.post(/.*/, sendBadResponce);
+EXPRESS.get(/.*/, sendNotFoundResponce);
 
 EXPRESS.listen(PORT, HOST, () => {
     console.log(`Server is running on http://${HOST}:${PORT}`);
