@@ -1,13 +1,18 @@
 import { STATUS_CODES } from "../enums/status_codes";
 import { LOGIN_SIGNUP_RESULT } from "../interfaces/apiService.interface";
-import { LOGIN } from "../interfaces/login.interface";
+import { COORDINATOR_LOGIN, LOGIN, STUDENT_LOGIN } from "../interfaces/login.interface";
 import { STUDENT_REGISTER } from "../interfaces/register.interface";
 import { isValdPassword, isValidMobileNumber, PASSWORD_MIN_LEN, removeAllSpaces, trimString } from "../util/util";
-import apiRepository from "../repository/auth.respository"
+import authRepository from "../repository/auth.respository"
+import { LOGIN_TYPE } from "../enums/loginType";
+import { stringToHash } from "../security/security";
+import { CRYPTO_ALGO_TYPES } from "../enums/cryptoAlgoTypes";
+import { DIGEST } from "../enums/digest";
+import { APP_CONFIG } from "../app";
 
 export default {
     async signup(signup: STUDENT_REGISTER): Promise<LOGIN_SIGNUP_RESULT> {
-        
+
         const {
             fullName,
             grade,
@@ -68,13 +73,19 @@ Minimum length of ${PASSWORD_MIN_LEN} characters`
 
         // end validation
 
-        const isSaveSignupData = await apiRepository.saveSignUpData({
+        const passwordHash = stringToHash(
+            password,
+            APP_CONFIG.PASSWORD_ALGO,
+            APP_CONFIG.PASSWORD_DIGEST
+        );
+
+        const isSaveSignupData = await authRepository.saveSignUpData({
             fullName,
             grade,
             district,
             schoolName,
             whatsappNumber,
-            password
+            passwordHash
         })
 
         if (isSaveSignupData) {
@@ -93,9 +104,41 @@ Minimum length of ${PASSWORD_MIN_LEN} characters`
     },
 
     async login(login: LOGIN): Promise<LOGIN_SIGNUP_RESULT> {
+
+        switch (login.login_type) {
+            case LOGIN_TYPE.STUDENT_LOGIN:
+                const studentData = login.login_data as STUDENT_LOGIN;
+                const savedStudentData = await authRepository.getLoginData<STUDENT_LOGIN>(login);
+                const passwordHash = stringToHash(
+                    savedStudentData.password,
+                    APP_CONFIG.PASSWORD_ALGO,
+                    APP_CONFIG.PASSWORD_DIGEST
+                );
+
+                if (savedStudentData.password === passwordHash
+                    && savedStudentData.studentId === studentData.studentId) return {
+                        status: STATUS_CODES.OK,
+                        message: "Login success"
+                    }
+
+                break;
+
+            case LOGIN_TYPE.COORDINATOR_LOGIN:
+                const cordinaterData = login.login_data as COORDINATOR_LOGIN;
+                const savedCordinaterData = await authRepository.getLoginData<COORDINATOR_LOGIN>(login);
+
+                if (savedCordinaterData.accessCode === cordinaterData.accessCode) return {
+                    status: STATUS_CODES.OK,
+                    message: "Login success"
+                }
+
+                break;
+
+        }
+
         return {
-            status: STATUS_CODES.OK,
-            message: ""
+            status: STATUS_CODES.BAD_REQUEST,
+            message: "Bad Login credentials"
         }
     }
 

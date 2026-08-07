@@ -4,5 +4,6 @@ export interface STUDENT_REGISTER {
     district : string,
     schoolName : string,
     whatsappNumber : string,
-    password : string,
+    password? : string,
+    passwordHash? : string,
 }

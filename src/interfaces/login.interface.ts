@@ -1,5 +1,9 @@
+import { LOGIN_TYPE } from "../enums/loginType"
 
-export type LOGIN = STUDENT_LOGIN | COORDINATOR_LOGIN;
+export interface LOGIN {
+    login_type : LOGIN_TYPE,
+    login_data : STUDENT_LOGIN | COORDINATOR_LOGIN
+}
 
 export interface STUDENT_LOGIN {
     studentId: string,
