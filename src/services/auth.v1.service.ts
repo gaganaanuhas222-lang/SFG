@@ -5,7 +5,7 @@ import { STUDENT_REGISTER } from "../interfaces/register.interface";
 import { isValdPassword, isValidMobileNumber, PASSWORD_MIN_LEN, removeAllSpaces, trimString } from "../util/util";
 import authRepository from "../repository/auth.respository"
 import { LOGIN_TYPE } from "../enums/loginType";
-import { stringToHash } from "../security/security";
+import { passwordToHash, stringToHash } from "../security/security";
 import { CRYPTO_ALGO_TYPES } from "../enums/cryptoAlgoTypes";
 import { DIGEST } from "../enums/digest";
 import { APP_CONFIG } from "../app";
@@ -108,15 +108,18 @@ Minimum length of ${PASSWORD_MIN_LEN} characters`
         switch (login.login_type) {
             case LOGIN_TYPE.STUDENT_LOGIN:
                 const studentData = login.login_data as STUDENT_LOGIN;
+
+                if (!studentData.password || !studentData.studentId) break;
+
                 const savedStudentData = await authRepository.getLoginData<STUDENT_LOGIN>(login);
                 const passwordHash = stringToHash(
-                    savedStudentData.password,
+                    studentData.password,
                     APP_CONFIG.PASSWORD_ALGO,
                     APP_CONFIG.PASSWORD_DIGEST
                 );
 
                 if (savedStudentData.password === passwordHash
-                    && savedStudentData.studentId === studentData.studentId) return {
+                    && savedStudentData.studentId === trimString(studentData.studentId)) return {
                         status: STATUS_CODES.OK,
                         message: "Login success"
                     }
@@ -125,15 +128,17 @@ Minimum length of ${PASSWORD_MIN_LEN} characters`
 
             case LOGIN_TYPE.COORDINATOR_LOGIN:
                 const cordinaterData = login.login_data as COORDINATOR_LOGIN;
+
+                if (!cordinaterData.accessCode) break;
+
                 const savedCordinaterData = await authRepository.getLoginData<COORDINATOR_LOGIN>(login);
 
-                if (savedCordinaterData.accessCode === cordinaterData.accessCode) return {
+                if (savedCordinaterData.accessCode === trimString(cordinaterData.accessCode)) return {
                     status: STATUS_CODES.OK,
                     message: "Login success"
                 }
 
                 break;
-
         }
 
         return {
