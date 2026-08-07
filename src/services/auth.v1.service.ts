@@ -73,11 +73,7 @@ Minimum length of ${PASSWORD_MIN_LEN} characters`
 
         // end validation
 
-        const passwordHash = stringToHash(
-            password,
-            APP_CONFIG.PASSWORD_ALGO,
-            APP_CONFIG.PASSWORD_DIGEST
-        );
+        const passwordHash = passwordToHash(password);
 
         const isSaveSignupData = await authRepository.saveSignUpData({
             fullName,
