@@ -32,9 +32,28 @@ interface timetable{
     prices : price_list
 }
 
+interface school_details {
+    school_name : string,
+    district : string,
+}
+
+interface address {
+    city : string,
+    address_line01 : string,
+    address_line02? : string,
+}
+interface guardian{
+    name : string,
+    mobile : string,
+}
+
 interface student extends person{
     isVerify : boolean,
     grade : string,
+    academic_year? : string,
+    sch_data? : school_details, 
+    address? : address,
+    guradian_data? : guardian,
     lastSeen? : string,
 }
 

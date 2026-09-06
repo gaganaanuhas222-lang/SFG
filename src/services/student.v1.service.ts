@@ -1,7 +1,10 @@
 import { API_RESPONCE, DASHBOARD_DATA } from "../interfaces/apiService.interface";
+import studentRepository from "../repository/student.repository";
 
 export default {
-    async updateProfile() : Promise<API_RESPONCE>{
+    async updateProfile(stu : student) : Promise<API_RESPONCE>{
+        
+
         return {} as API_RESPONCE;
     },
 
