@@ -1,27 +1,37 @@
 import { Router } from "express";
+import adminV1Controller from "../../../../controllers/admin.v1.controller";
 
 const adminRouter  = Router();
+const {
+    addNewStudnet,
+    editStudent,
+    getDashboardData,
+    addContent,
+    updateSchedule,
+    slipReview,
+    publishLiveClass,
+    newAnnouncement,
+    updateBankDetails
 
-adminRouter.post("/addNewStudent");
-adminRouter.post("/editStudent");
+} = adminV1Controller;
+
+adminRouter.post("/addNewStudent", addNewStudnet);
+adminRouter.post("/editStudent", editStudent);
 
 // adminRouter.post("/getIncativeStudnets");
 // adminRouter.post("/getRecentActivity");
 // adminRouter.post("/getOverduePayments");
-adminRouter.post("/getDashboardData");
+adminRouter.post("/getDashboardData",getDashboardData);
 
-adminRouter.post("/addContent");
-adminRouter.post("/updateSchedule");
+adminRouter.post("/addContent", addContent);
+adminRouter.post("/updateSchedule",updateSchedule);
 
-adminRouter.post("/slipReview");
+adminRouter.post("/slipReview", slipReview);
 
-adminRouter.post("/publishLiveClass");
+adminRouter.post("/publishLiveClass", publishLiveClass);
+adminRouter.post("/newAnnouncement", newAnnouncement);
 
-adminRouter.post("/newAnnouncement");
-
-adminRouter.post("/updateBank");
-
-
+adminRouter.post("/updateBankDetails", updateBankDetails);
 
 export default adminRouter;
 

@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { STATUS_CODES } from "../enums/status_codes";
-import { LOGIN_SIGNUP_RESULT } from "../interfaces/apiService.interface";
+import { API_RESPONCE, LOGIN_SIGNUP_RESULT } from "../interfaces/apiService.interface";
 
 export const sendBadResponce = (req : Request, res : Response) => sendResponce(res,STATUS_CODES.BAD_REQUEST,{
     status : STATUS_CODES.BAD_REQUEST,
@@ -17,4 +17,4 @@ export const sendInternalServerErrorResponce = (req : Request, res : Response) =
     message : "Internal server error"
 })
 
-export const sendResponce = (res : Response, status : STATUS_CODES, data : LOGIN_SIGNUP_RESULT) => res.status(status).send(data); 
+export const sendResponce = (res : Response, status : STATUS_CODES, data : API_RESPONCE) => res.status(status).send(data); 

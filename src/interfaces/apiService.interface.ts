@@ -5,6 +5,10 @@ export interface API_RESPONCE {
     message : string
 }
 
+export interface DASHBOARD_DATA extends API_RESPONCE{
+    data : any
+}
+
 export interface LOGIN_SIGNUP_RESULT {
     status: STATUS_CODES,
     message: string
