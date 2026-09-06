@@ -14,6 +14,9 @@ const { EXPRESS, HOST, PORT } = {
 EXPRESS.use(express.json());
 
 EXPRESS.use("/", express.static("public/"));
+EXPRESS.use("/student", express.static("public/dashboards/student-dashboard.html"));
+EXPRESS.use("/admin", express.static("public/dashboards/admin-dashboard.html"));
+
 EXPRESS.use("/api", apiRouter);
 
 EXPRESS.post(/.*/, sendBadResponce);
