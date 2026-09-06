@@ -6,8 +6,6 @@ import { isValdPassword, isValidMobileNumber, PASSWORD_MIN_LEN, removeAllSpaces,
 import authRepository from "../repository/auth.respository"
 import { LOGIN_TYPE } from "../enums/loginType";
 import { passwordToHash, stringToHash } from "../security/security";
-import { CRYPTO_ALGO_TYPES } from "../enums/cryptoAlgoTypes";
-import { DIGEST } from "../enums/digest";
 import { APP_CONFIG } from "../app";
 
 export default {

@@ -35,7 +35,7 @@ interface timetable{
 interface student extends person{
     isVerify : boolean,
     grade : string,
-    lastSeen : string,
+    lastSeen? : string,
 }
 
 interface assessment_genaral{
