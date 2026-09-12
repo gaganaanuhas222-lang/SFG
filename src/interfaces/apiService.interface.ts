@@ -1,4 +1,5 @@
 import { STATUS_CODES } from "../enums/status_codes"
+import { assessment_type, paymet_history, student, timetable } from "./db_er.interfaces"
 
 export interface API_RESPONCE {
     status : STATUS_CODES,
@@ -7,6 +8,23 @@ export interface API_RESPONCE {
 
 export interface DASHBOARD_DATA extends API_RESPONCE{
     data : any
+}
+
+export interface STUDENT_DASHBOARD_DATA extends DASHBOARD_DATA{
+    data : {
+        timetable : timetable[],
+        assessments : assessment_type[],
+        paymentHistory : (OVERDUE_PAYMENTS | paymet_history)[]
+    }
+}
+
+export interface ADMIN_DASHBOARD_DATA extends DASHBOARD_DATA {
+    data : {
+        studnets : student[],
+        payments : paymet_history[],
+        contents : assessment_type[],
+        schedule : timetable[]
+    }
 }
 
 export interface LOGIN_SIGNUP_RESULT {
@@ -21,12 +39,6 @@ export interface SLIP_REVIEW_REQ{
 
 export interface SLIP_REVIEW_RES extends API_RESPONCE{};
 
-export interface BANK_DETAILS {
-    bank_name : string,
-    acc_name : string,
-    acc_number : number,
-    branch : string,
-}
 
 export interface RECENT_ACTIVITY{
     timestamp : number,

@@ -2,9 +2,9 @@ import { Request, Response } from "express";
 import { STATUS_CODES } from "../enums/status_codes";
 import { API_RESPONCE, LOGIN_SIGNUP_RESULT } from "../interfaces/apiService.interface";
 
-export const sendBadResponce = (req : Request, res : Response) => sendResponce(res,STATUS_CODES.BAD_REQUEST,{
+export const sendBadResponce = (req : Request, res : Response, message? : string) => sendResponce(res,STATUS_CODES.BAD_REQUEST,{
     status : STATUS_CODES.BAD_REQUEST,
-    message : "Bad Request"
+    message : message ?  message : "Bad Request" 
 })
 
 export const sendNotFoundResponce = (req : Request, res : Response) => sendResponce(res,STATUS_CODES.BAD_REQUEST,{

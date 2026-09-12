@@ -15,3 +15,11 @@ export const isValidMobileNumber = (mobileNumber: string): boolean => {
 }
 
 export const isValdPassword = (password : string) => PASSWORD_REGEX.test(password);
+
+export const isValidStudent = (s: student) =>
+    s.first_name
+    && s.last_name
+    && s.role
+    && s.status
+    && s.uniqe_id
+    && s.grade;

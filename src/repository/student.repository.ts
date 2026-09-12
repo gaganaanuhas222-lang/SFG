@@ -1,7 +1,7 @@
-type assessment_type = tute | recordings | live_class;
+import { assessment_type, live_class, paymet_history, student, timetable } from "../interfaces/db_er.interfaces";
 
 export default {
-    async updateStudentProfile() : Promise<boolean>{
+    async updateStudentProfile(s : student) : Promise<boolean>{
         return false;
     },
 

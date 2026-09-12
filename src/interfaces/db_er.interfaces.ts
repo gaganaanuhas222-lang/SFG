@@ -1,4 +1,6 @@
-interface person {
+export type assessment_type = tute | recordings | live_class;
+
+export interface person {
     first_name : string,
     last_name : string,
     role : string,
@@ -6,12 +8,12 @@ interface person {
     uniqe_id : string,
 }
 
-interface login_credentials{
+export interface login_credentials{
     person_id : number,
     password_hash : string,
 }
 
-interface paymet_history{
+export interface paymet_history{
     payment_id : string,
     amount : number,
     payment_for : string,
@@ -20,34 +22,34 @@ interface paymet_history{
     prices : price_list
 }
 
-interface price_list{
+export interface price_list{
     amount : number,
     currency : string,
 }
 
-interface timetable{
+export interface timetable{
     start_datetime : string,
     end_datetime : string,
     grade : string,
     prices : price_list
 }
 
-interface school_details {
+export interface school_details {
     school_name : string,
     district : string,
 }
 
-interface address {
+export interface address {
     city : string,
     address_line01 : string,
     address_line02? : string,
 }
-interface guardian{
+export interface guardian{
     name : string,
     mobile : string,
 }
 
-interface student extends person{
+export interface student extends person{
     isVerify : boolean,
     grade : string,
     academic_year? : string,
@@ -57,7 +59,9 @@ interface student extends person{
     lastSeen? : string,
 }
 
-interface assessment_genaral{
+export interface admin extends person{}
+
+export interface assessment_genaral{
     title : string,
     description : string,
     upload_on : string,
@@ -67,22 +71,29 @@ interface assessment_genaral{
     price : price_list
 }
 
-interface tute extends assessment_genaral{
+export interface tute extends assessment_genaral{
     file_id : string
 }
 
-interface recordings extends assessment_genaral{
+export interface recordings extends assessment_genaral{
     video_id : string
 }
 
-interface live_class extends assessment_genaral {
+export interface live_class extends assessment_genaral {
     timeDate : string,
     by : string,
     link : string,
 }
 
-interface announcement {
+export interface announcement {
     grade : string,
     title : string,
     message : string
+}
+
+export interface bank_details {
+    bank_name : string,
+    acc_name : string,
+    acc_number : number,
+    branch : string,
 }
